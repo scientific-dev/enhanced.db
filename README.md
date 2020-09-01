@@ -90,7 +90,6 @@ const db = require('enchanced.db')
 
 db.version // Returns current version of the package
 db.startedAt // Returns time in ms when the project started connecting with database
-db.uptime // Returns uptime of the project
 ```
 
 ## From Science Spot AKA Scientific Guy
