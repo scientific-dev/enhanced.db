@@ -1,55 +1,51 @@
-// Import Packages first
-const db = require('better-sqlite3')('enchanced.sqlite')
+class Base{
+  constructor(table, filename){
+    this.table = table
+    this.filename = filename
+    this.db = require('better-sqlite3')(this.filename)
+  }
 
-// Export data
-module.exports = {
-  set: function set(key, value, table){
-    if(!table) table = 'database'
-    db.prepare(`CREATE TABLE IF NOT EXISTS ${table} (key TEXT, value TEXT)`).run()
+  set(key, value){
+    this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
     
-    let fetchedData =  db.prepare(`SELECT * FROM ${table} WHERE key = (?)`).get(key)
+    let fetchedData =  this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
 
     if(!fetchedData){
-      db.prepare(`INSERT INTO ${table} (key, value) VALUES (?,?)`).run(key, '{}');
-      fetchedData = db.prepare(`SELECT * FROM ${table} WHERE key = (?)`).get(key);
+      this.db.prepare(`INSERT INTO ${this.table} (key, value) VALUES (?,?)`).run(key, '{}');
+      fetchedData = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key);
     }
 
-    db.prepare(`UPDATE ${table} SET value = (?) WHERE key = (?)`).run(value, key)
+    this.db.prepare(`UPDATE ${this.table} SET value = (?) WHERE key = (?)`).run(JSON.stringify(value), key)
     return value
-  },
+  }
 
-  get: function get(key, table){
-    if(!table) table = 'database'
+  get(key){
+    this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
 
-    db.prepare(`CREATE TABLE IF NOT EXISTS ${table} (key TEXT, value TEXT)`).run()
-
-    let value = db.prepare(`SELECT * FROM ${table} WHERE key = (?)`).get(key)
+    let value = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
 
     if(!value) return null
     return value.value
-  },
+  }
 
-  delete: function del(key, table){
-    if(!table) table = 'database'
-
-    db.prepare(`CREATE TABLE IF NOT EXISTS ${table} (key TEXT, value TEXT)`).run()
-    db.prepare(`DELETE FROM ${table} WHERE key = (?)`).run(key);
-
+  delete(key){
+    this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
+    this.db.prepare(`DELETE FROM ${this.table} WHERE key = (?)`).run(key);
     return
-  },
+  }
 
-  all: function all(table){
-    if(!table) table = 'database'
+  all(){
+    this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
 
-    db.prepare(`CREATE TABLE IF NOT EXISTS ${table} (key TEXT, value TEXT)`).run()
-
-    var statement = db.prepare(`SELECT * FROM ${table} WHERE key IS NOT NULL`), data = statement.iterate()
+    var statement = this.db.prepare(`SELECT * FROM ${this.table} WHERE key IS NOT NULL`), data = statement.iterate()
     let result = []
 
     for(var set of data){
-      result.push({key: set.key, value: set.value})
+      result.push({key: set.key, value: JSON.parse(set.value)})
     }
 
     return result
   }
 }
+
+module.exports = Base
