@@ -89,7 +89,7 @@ class Table{
     oldValue.push(value)
     oldValue = oldValue.filter(x => x !== null)
 
-    return base.set(key, JSON.stringify(oldValue), this.tablename)
+    return base.set(key, (oldValue), this.tablename)
   }
 
   deleteAll(){
