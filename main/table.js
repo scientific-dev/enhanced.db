@@ -6,44 +6,48 @@ class Table{
     if(!tablename) tablename = 'database'
 
     if(options.clearOnStart != true) options.clearOnStart = false
-
-    if(options.clearOnStart) fs.writeFileSync('enchanced.sqlite', '')
+    if(!options.filename) options.filename = 'enchanced.sqlite'
 
     this.tablename = tablename
-    this.createdAt = Date.now()
+    this.startedAt = Date.now()
+    this.uptime = Date.now()-this.startedAt
     this.options = options
+    this.filename = options.filename
+    this.base = new base(this.tablename, this.filename)
+
+    if(options.clearOnStart){
+      db.all().map(db => db.key).forEach(key => this.base.delete(key))
+    }
   }
 
   set(key, value){
     if(!key || !value) throw new Error('You are either missing key or value to set!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
-    return base.set(key, value, this.tablename)
+    return this.base.set(key, value)
   }
 
   get(key){
     if(!key) throw new Error('You are either missing key to get!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
-    try { return JSON.parse(base.get(key, this.tablename)) }catch (e){ return base.get(key, this.tablename) }
+    try { return JSON.parse(this.base.get(key)) }catch (e){ return this.base.get(key) }
   }
 
   delete(key){
     if(!key) throw new Error('You are either missing key to delete!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
-    return base.delete(key, this.tablename)
+    return this.base.delete(key)
   }
 
-  all(){
-    return base.all(this.tablename)
-  }
+  all(){ return this.base.all() }
 
   startsWith(search){
     if(!search) throw new Error('You are missing search parameter!')
     if(typeof search != 'string') throw new Error('Typeof search parameter must be a string!')
 
-    let all = base.all(this.tablename), result = []
+    let all = this.base.all(), result = []
     for(let i=0; i < all.length; i++){
       if(all[i].key.startsWith(search)) result.push(all[i])
     }
@@ -58,10 +62,10 @@ class Table{
     amount = parseInt(amount)
     if(typeof amount != 'number') throw new Error('Typeof amount must be a number to add!')
 
-    let oldValue = parseInt(base.get(key, this.tablename))
+    let oldValue = parseInt(this.base.get(key))
     if(typeof oldValue != 'number') throw new Error('Target is not a number!')
 
-    return base.set(key, Math.floor(oldValue+amount), this.tablename)
+    return this.base.set(key, Math.floor(oldValue+amount))
   }
 
   subtract(key, amount){
@@ -71,10 +75,10 @@ class Table{
     amount = parseInt(amount)
     if(typeof amount != 'number') throw new Error('Typeof amount must be a number to subtract!')
 
-    let oldValue = parseInt(base.get(key, this.tablename))
+    let oldValue = parseInt(this.base.get(key))
     if(typeof oldValue != 'number') throw new Error('Target is not a number!')
 
-    return base.set(key, Math.floor(oldValue-amount), this.tablename)
+    return this.base.set(key, Math.floor(oldValue-amount))
   }
 
   push(key, value){
@@ -82,27 +86,24 @@ class Table{
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
 
-    let oldValue = JSON.parse(base.get(key, this.tablename))
+    let oldValue = JSON.parse(this.base.get(key))
 
     if(!Array.isArray(oldValue)) oldValue = [oldValue]
 
     oldValue.push(value)
     oldValue = oldValue.filter(x => x !== null)
 
-    return base.set(key, (oldValue), this.tablename)
+    return this.base.set(key, (oldValue))
   }
 
-  deleteAll(){
-    fs.writeFileSync('enchanced.sqlite', '')
-    return
-  }
+  deleteTable(){ this.base.all().map(db => db.key).forEach(key => this.base.delete(key)) }
 
   has(key){
     if(!key) throw new Error('You are either missing key to find!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
 
-    let value = base.get(key, this.tablename)
+    let value = this.base.get(key)
     if(!value) return false
     else return true
   }
@@ -112,16 +113,24 @@ class Table{
     if(!Array.isArray(data)) throw new Error('Invalid Quick.DB Data!')
 
     data.forEach(d => {
-      try{ base.set(d.ID, d.data, this.tablename) }catch(e) { console.log(`Failed to import: ${d}`) }
+      try{ this.base.set(d.ID, d.data) }catch(e) { console.log(`Failed to import: ${d}`) }
     })
 
     return console.log('Finished Importing!')
   }
 
-  toJson(file){
-    if(!file) throw new Error('Missing file to extract!')
-    fs.writeFileSync(file, JSON.stringify(base.all(this.tablename)))
+  import(data){
+    if(!data) throw new Error('Missing Data!')
+    if(!Array.isArray(data)) throw new Error('Invalid Enchanced.DB Data!')
+
+    data.forEach(d => {
+      try{ this.base.set(d.key, d.value) }catch(e) { console.log(`Failed to import: ${d}`) }
+    })
+
+    return console.log('Finished Importing!')
   }
+
+  type(key){ return typeof this.base.get(key) }
 }
 
 module.exports = Table
