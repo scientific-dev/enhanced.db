@@ -5,7 +5,6 @@ const db = new (require('./main/table.js'))('database', this.options)
 module.exports = {
   version: require('./package.json').version,
   startedAt: startedAt,
-  uptime: Date.now()-startedAt,
   Table: require('./main/table.js'),
   set: (key, value) => db.set(key, value),
   get: (key) => db.get(key),
