@@ -23,8 +23,8 @@ Import Package
 const db = require('enchanced.db')
 ```
 
-## set
-Set value to the key
+## Set
+Set value to the key!
 
 ```js
 db.set(key, value)
@@ -34,4 +34,18 @@ db.set(key, value)
 | Parameter Name  | Tyepof     | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
-| value | string, object or array | data of the id |
+| value | string, object or array | Data of the ID |
+
+## Set
+Get value of the key!
+
+```js
+db.get(key)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+
+# Will be updated
