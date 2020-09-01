@@ -48,9 +48,8 @@ For those who wants to use this package but your Quick.DB has some important dat
 // Import quick.db
 const quick = require('quick.db')
 
-// Create table in enchanced.db
-const { Table } = require('enchanced.db')
-const db = new Table('kek')
+// Create db in enchanced.db
+const db = require('enchanced.db')
 
 db.importQuick(quick.all())
 
@@ -59,6 +58,7 @@ db.importQuick(quick.all())
 
 ## Creating Tables
 Create a custom table name which will be apart from the default database table
+
 ```js
 const db = require('enchanced.db')
 const table = new db.Table('myTable', options)
@@ -80,8 +80,8 @@ table.subtract('foo', 2) // Value would be 2
 table.delete('f') // Will delete key 'f'
 table.deleteTable() // Will clear whole database! This will work only for custom table!
 
-db.set('foo', ['foo'])
-db.push('foo', 'bar') // Will push value to the array!
+table.set('foo', ['foo'])
+table.push('foo', 'bar') // Will push value to the array!
 ```
 
 ## Some Utitly
@@ -94,5 +94,5 @@ db.uptime // Returns uptime of the project
 ```
 
 ## From Science Spot AKA Scientific Guy
-[Support: Discord Server](https://discord.gg/FrduEZd)
-[Issues: Github Repo](https://github.com/Scientific-Guy/enchanced.db)
+- [Support: Discord Server](https://discord.gg/FrduEZd)
+- [Issues: Github Repo](https://github.com/Scientific-Guy/enchanced.db)
