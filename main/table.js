@@ -16,7 +16,7 @@ class Table{
     this.base = new base(this.tablename, this.filename)
 
     if(options.clearOnStart){
-      db.all().map(db => db.key).forEach(key => this.base.delete(key))
+      this.base.all().map(db => db.key).forEach(key => this.base.delete(key))
     }
   }
 
