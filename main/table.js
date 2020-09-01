@@ -25,7 +25,7 @@ class Table{
     if(!key) throw new Error('You are either missing key to get!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
-    return JSON.parse(base.get(key, this.tablename))
+    try { return JSON.parse(base.get(key, this.tablename)) }catch (e){ return base.get(key, this.tablename) }
   }
 
   delete(key){
