@@ -36,7 +36,7 @@ db.set(key, value)
 | key | string | ID of the value |
 | value | string, object or array | Data of the ID |
 
-## Set
+## Get
 Get value of the key!
 
 ```js
@@ -48,4 +48,142 @@ db.get(key)
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 
-# Will be updated
+## All
+Get all the data in the database
+
+```js
+db.all()
+```
+
+> **NOTE:** Remember if you are doing db.all() this will return data but if you made tables. The data of those tables wont return to get those data you have to do ``table.all()`` method where ``table`` is the constructor. In future we will be solving this problem too!
+
+## StartsWith
+Will filter data with startsWith() function! This will also return the data startswith the search parameter excluding tables!
+
+```js
+db.startsWith(search)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| search | string | String to filter data with ``startsWith()`` |
+
+## Has
+Will return true or false if it has value or not for that key
+
+```js
+db.has(key)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+
+## Type
+Will return tyepof the key
+
+```js
+db.type(key)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+
+## Add
+Will add value to the existing value of the key only if its number
+
+```js
+db.add(key, amount)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+| amount | number | Amount to add |
+
+## Subtract
+Will subtract value from the existing value of the key only if its number
+
+```js
+db.subtract(key, amount)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+| amount | number | Amount to subtract |
+
+## Options
+There are some options which makes this database unique!
+
+```js
+db.options(options)
+```
+
+**Options:**
+| Options Name  | Tyepof     | Description | Default |
+| ----------------|------------|-------------|---------|
+| clearOnStart | boolean | Will clear database on restart of program only if its set to `true` | false |
+| filename | string | Name of the file where data will be stored! | 'enchanced.sqlite' |
+
+> **NOTE:** Use `import()` if you are switching to a new file
+
+## Delete
+Will delete value of the key
+
+```js
+db.delete(key)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+
+## DeleteAll
+Will delete all values of the keys. This will support only to the deafult database table not to the custom tables....
+
+```js
+db.delete(key)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+
+## Import
+Import data from table to table or table to default table or vice versa but only for `{key: key, value: value}` type stored data!
+
+```js
+db.import(data)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| data | object | all() **Only Enchanced.DB** data only! |
+
+## ImportQuick
+Import data from Quick.DB table data or default table data!
+
+```js
+const quick = require('quick.db')
+const db = require('enchanced.db')
+
+db.importQuick(quick.all())
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| data | object | all() **Only Quick.DB** data only! |
+
+# Will be updated or else join our Discord Server to clear your doubts
+**Link:** [https://discord.gg/FrduEZd](https://discord.gg/FrduEZd)
