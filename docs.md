@@ -17,5 +17,21 @@ I was using Quick.DB for some works but i felt so much missing in **Quick.DB** s
 
 # Docs
 
-## f
-### f
+## Getting Started
+Import Package
+```js
+const db = require('enchanced.db')
+```
+
+## set
+Set value to the key
+
+```js
+db.set(key, value)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+| value | string, object or array | data of the id |
