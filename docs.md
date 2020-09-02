@@ -18,6 +18,8 @@ So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB
   - [DeleteAll](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#deleteall)
   - [Import](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#import)
   - [ImportQuick](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#importquick)
+- [Introduction To Tables](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#introduction-to-tables)
+- [Some Links](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#some-links)
 
 # Requirements
 - v0.0.5 or higher version of **Enchanced.DB**
@@ -219,5 +221,6 @@ If you have read the docs from first then you have learnt **Enchanced.DB** final
 
 > **Note:** There is no use of `options()` function in `Table` constructor because you can set it in the constructor parameter Options itself. And you need to use `deleteTable()` function instead of `deleteAll()` for custom tables!
 
-# Will be updated or else join our Discord Server to clear your doubts
-**Link:** [https://discord.gg/FrduEZd](https://discord.gg/FrduEZd)
+# Some Links
+ - **Discord Server Link:** [https://discord.gg/FrduEZd](https://discord.gg/FrduEZd)
+ - **GitHub Repo Link:** [https://github.com/Scientific-Guy/enchanced.db](https://github.com/Scientific-Guy/enchanced.db)
