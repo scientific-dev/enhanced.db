@@ -3,6 +3,7 @@
 An easy way to created better-sqlite3 database with some enchancements! This package is inspired from Quick.DB but as Quick.DB was missing some features so me (Science Spot AKA Scientific Guy) recreated it with less codes and easy enchancements! We didn't made this package to compete with Quick.Db. This was just to made fullfil needs!
 
 You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
+**Docs:** https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md
 
 ```js
 const db = require('enchanced.db')
