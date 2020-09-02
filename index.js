@@ -1,10 +1,11 @@
 const fs = require('fs')
 const startedAt = Date.now()
-const db = new (require('./main/table.js'))('database', this.options)
+let db = new (require('./main/table.js'))('database', this.options)
 
 module.exports = {
   version: require('./package.json').version,
   startedAt: startedAt,
+  uptime: Date.now()-startedAt,
   Table: require('./main/table.js'),
   set: (key, value) => db.set(key, value),
   get: (key) => db.get(key),
@@ -16,7 +17,8 @@ module.exports = {
   subtract: (key, amount) => db.subtract(key, amount),
   delete: (key) => db.delete(key),
   deleteAll: () => db.deleteTable(),
+  latency: () => db.latency(),
   import: (data) => db.import(data),
   importQuick: (data) => db.importQuick(data),
-  options: (options) => this.options = options
+  options: (options) => db = new (require('./main/table.js'))('database', options)
 }
