@@ -197,5 +197,27 @@ db.importQuick(quick.all())
 | ----------------|------------|-------------|
 | data | object | all() **Only Quick.DB** data only! |
 
+## Introduction to Tables
+So if you are Quick.DB user you know what is this. Till now you have use default database table named `database` but using the `Table` constructor you can make custom Sqlite Database Tables with custom names and options too
+
+### Setting up Tables
+```js
+const { Table } = require('enchanced.db')
+const table = new Table(tableName, options)
+```
+
+**Parameters:**
+| Parameter Name | Tyepof | Description |
+|----------------|--------|-------------|
+| tableName | string | Your custom table name |
+| options | object | Same as `options()` method in the default database table! **Options:** `clearOnStart` and `filename` |
+
+### Methods and functions of the tables
+If you have read the docs from first then you have learnt **Enchanced.DB** finally because `Table` constructor has same methods!
+
+**Methods:** `set`, `get`, `all`, `startsWith`, `has`, `type`, `add`, `subtract`, `delete`, `deleteTable`, `import`, `importQuick`
+
+> **Note:** There is no use of `options()` function in `Table` constructor because you can set it in the constructor parameter Options itself. And you need to use `deleteTable()` function instead of `deleteAll()` for custom tables!
+
 # Will be updated or else join our Discord Server to clear your doubts
 **Link:** [https://discord.gg/FrduEZd](https://discord.gg/FrduEZd)
