@@ -5,7 +5,19 @@ So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB
 # Index
 - [Requirements](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#requirements)
 - [Things to know](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#things-to-know)
-- [Docs](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#docs)
+- [Getting Started](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#getting-started)
+  - [Set](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#set)
+  - [Get](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#get)
+  - [All](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#all)
+  - [StartsWith](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#startswith)
+  - [Has](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#has)
+  - [Type](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#type)
+  - [Add](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#add)
+  - [Subtract](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#subtract)
+  - [Options](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#delete)
+  - [DeleteAll](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#deleteall)
+  - [Import](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#import)
+  - [ImportQuick](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#importquick)
 
 # Requirements
 - v0.0.5 or higher version of **Enchanced.DB**
