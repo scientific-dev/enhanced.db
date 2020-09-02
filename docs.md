@@ -14,7 +14,8 @@ So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB
   - [Type](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#type)
   - [Add](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#add)
   - [Subtract](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#subtract)
-  - [Options](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#delete)
+  - [Options](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#options)
+  - [Delete](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#delete)
   - [DeleteAll](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#deleteall)
   - [Import](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#import)
   - [ImportQuick](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#importquick)
@@ -164,13 +165,8 @@ db.delete(key)
 Will delete all values of the keys. This will support only to the deafult database table not to the custom tables....
 
 ```js
-db.delete(key)
+db.deleteAll()
 ```
-
-**Parameters:**
-| Parameter Name  | Tyepof     | Description |
-| ----------------|------------|-------------|
-| key | string | ID of the value |
 
 ## Import
 Import data from table to table or table to default table or vice versa but only for `{key: key, value: value}` type stored data!
