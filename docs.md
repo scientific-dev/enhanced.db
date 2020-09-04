@@ -23,7 +23,7 @@ So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB
 - [Some Links](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#some-links)
 
 # Requirements
-- v0.0.5 or higher version of **Enchanced.DB**
+- v0.0.5 or higher version of **Enchanced.DB** (**Better:** v0.0.72)
 - Basic knowledge with JS
 - Better IDE
 
