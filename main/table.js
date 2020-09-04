@@ -18,6 +18,8 @@ class Table{
     if(options.clearOnStart){
       this.base.all().map(db => db.key).forEach(key => this.base.delete(key))
     }
+
+    try{ if(fs.readFileSync('enchanced.sqlite') == '') fs.unlinkSync('enchanced.sqlite') }catch(e){}
   }
 
   set(key, value){
