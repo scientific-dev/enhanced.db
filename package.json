@@ -1,6 +1,6 @@
 {
     "name": "enchanced.db",
-    "version": "0.0.72",
+    "version": "0.0.90",
     "description": "Create a simple database using better-sqlite3, quick, fast and more enchanced!",
     "main": "index.js",
     "keywords": [
