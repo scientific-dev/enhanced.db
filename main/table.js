@@ -1,5 +1,5 @@
-const base = require('./base.js')
-const fs = require('fs')
+const base = require('./base.js');
+const fs = require('fs');
 
 class Table{
   constructor(tablename, options={}){
@@ -18,8 +18,6 @@ class Table{
     if(options.clearOnStart){
       this.base.all().map(db => db.key).forEach(key => this.base.delete(key))
     }
-
-    try{ if(fs.readFileSync('enchanced.sqlite') == '') fs.unlinkSync('enchanced.sqlite') }catch(e){}
   }
 
   set(key, value){
@@ -132,7 +130,15 @@ class Table{
     return console.log('Finished Importing!')
   }
 
-  type(key){ return typeof this.base.get(key) }
+  type(key){ try{ return typeof JSON.parse(this.base.get(key)) }catch(e){ return typeof this.base.get(key) } }
+
+  includes(key, value){
+    if(!key || !value) throw new Error('Missing key or value!')
+    let result = this.base.get(key)
+    try{ result = JSON.parse(result) }catch(e){ throw new Error('Target is not an Array!') }
+    if(!Array.isArray(result)) throw new Error('Target is not an Array!')
+    return result.includes(key)
+  }
 }
 
 module.exports = Table
