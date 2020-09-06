@@ -11,8 +11,8 @@ class Base{
     let fetchedData =  this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
 
     if(!fetchedData){
-      this.db.prepare(`INSERT INTO ${this.table} (key, value) VALUES (?,?)`).run(key, '{}');
-      fetchedData = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key);
+      this.db.prepare(`INSERT INTO ${this.table} (key, value) VALUES (?,?)`).run(key, '{}')
+      fetchedData = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
     }
 
     this.db.prepare(`UPDATE ${this.table} SET value = (?) WHERE key = (?)`).run(JSON.stringify(value), key)
