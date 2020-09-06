@@ -40,6 +40,7 @@ db.deleteAll() // Will clear whole database! This will work only for default dat
 
 db.set('foo', ['foo'])
 db.push('foo', 'bar') // Will push value to the array!
+db.includes('foo', 'bar') // Will return true
 ```
 
 ## Import Quick.DB data!
@@ -83,14 +84,15 @@ table.deleteTable() // Will clear whole database! This will work only for custom
 
 table.set('foo', ['foo'])
 table.push('foo', 'bar') // Will push value to the array!
+table.includes('foo', 'bar') // Will return true
 ```
 
-## Some Utitly
+## Some Utility
 ```js
 const db = require('enchanced.db')
 
 db.version // Returns current version of the package
-db.startedAt // Returns time in ms when the project started connecting with database
+db.uptime // Uptime of the project with Enchanced.db
 ```
 
 ## From Science Spot AKA Scientific Guy
