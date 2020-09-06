@@ -15,6 +15,8 @@ So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB
   - [Add](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#add)
   - [Subtract](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#subtract)
   - [Options](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#options)
+  - [Push](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#push)
+  - [Includes](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#includes)
   - [Delete](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#delete)
   - [DeleteAll](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#deleteall)
   - [Import](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#import)
@@ -23,7 +25,7 @@ So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB
 - [Some Links](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#some-links)
 
 # Requirements
-- v0.0.5 or higher version of **Enchanced.DB** (**Better:** v0.0.72 or higher)
+- v0.0.90 of **Enchanced.DB** or higher
 - Basic knowledge with JS
 - Better IDE
 
@@ -149,6 +151,33 @@ db.options(options)
 
 > **NOTE:** Use `import()` if you are switching to a new file
 
+## Push
+Push data to the old value if its an Array
+
+```js
+db.push(key, value)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+| value | any | Value to push |
+
+## Includes
+Will check oldData if it includes value in the OldValue Array
+
+```js
+db.includes(key, value)
+```
+
+**Parameters:**
+| Parameter Name  | Tyepof     | Description |
+| ----------------|------------|-------------|
+| key | string | ID of the value |
+| value | any | Value to check if its included! |
+
+
 ## Delete
 Will delete value of the key
 
@@ -213,7 +242,7 @@ const table = new Table(tableName, options)
 ### Methods and functions of the tables
 If you have read the docs from first then you have learnt **Enchanced.DB** finally because `Table` constructor has same methods!
 
-**Methods:** `set`, `get`, `all`, `startsWith`, `has`, `type`, `add`, `subtract`, `delete`, `deleteTable`, `import`, `importQuick`
+**Methods:** `set`, `get`, `all`, `startsWith`, `has`, `type`, `add`, `subtract`, `delete`, `deleteTable`, `import`, `importQuick`, `push`, `includes`
 
 > **Note:** There is no use of `options()` function in `Table` constructor because you can set it in the constructor parameter Options itself. And you need to use `deleteTable()` function instead of `deleteAll()` for custom tables!
 
