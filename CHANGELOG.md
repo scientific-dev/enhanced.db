@@ -1,8 +1,19 @@
-# Enchanced.DB Changelog
+# Enhanced.DB Changelog
 
 ---
 
-## v0.0.90
+## v0.10.00
+
+### Important Things Updated
+- Name Changed
+
+### Things Updated
+- Name Changed
+- set() is updated
+
+---
+
+## v0.00.90
 
 ### Important Things Updated
 - Added includes()
