@@ -32,7 +32,7 @@ db.all() // Will return all data
 db.startsWith('f') // Will send you the array of the data which key's starts with f
 
 db.set('foo', 1)
-db.add('foo', 2) // Value would be 3
+db.add('foo', 2) // Value would be 3 
 db.subtract('foo', 2) // Value would be 2
 
 db.delete('f') // Will delete key 'f'
