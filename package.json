@@ -1,11 +1,12 @@
 {
-    "name": "enchanced.db",
-    "version": "0.0.90",
-    "description": "Create a simple database using better-sqlite3, quick, fast and more enchanced!",
+    "name": "enhanced.db",
+    "version": "0.1.0",
+    "description": "Create a simple database using better-sqlite3, quick, fast and more enhanced!",
     "main": "index.js",
     "keywords": [
       "json.db",
       "enchanced.db",
+      "enhanced.db",
       "jsondb.ez",
       "jsondb",
       "easy-json-database",
