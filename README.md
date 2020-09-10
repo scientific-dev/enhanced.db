@@ -1,12 +1,12 @@
-# Enchanced.DB
+# Enhanced.DB
 
-An easy way to created better-sqlite3 database with some enchancements! This package is inspired from Quick.DB but as Quick.DB was missing some features so me (Science Spot AKA Scientific Guy) recreated it with less codes and easy enchancements! We didn't made this package to compete with Quick.Db. This was just to made fullfil needs!
+> **Note:** This package was first published as Enchanced.DB but later i found that there was a very big spelling mistake XD so we changed the nme to Enhanced.DB so need not to worry as it is almost same to it!
 
 You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
-**Docs:** https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md
+**Docs:** https://github.com/Scientific-Guy/enhanced.db/blob/master/docs.md
 
 ```js
-const db = require('enchanced.db')
+const db = require('enhanced.db')
 
 // Set Options
 const options = {
@@ -50,8 +50,8 @@ For those who wants to use this package but your Quick.DB has some important dat
 // Import quick.db
 const quick = require('quick.db')
 
-// Create db in enchanced.db
-const db = require('enchanced.db')
+// Create db in enhanced.db
+const db = require('enhanced.db')
 
 db.importQuick(quick.all())
 
@@ -62,7 +62,7 @@ db.importQuick(quick.all())
 Create a custom table name which will be apart from the default database table
 
 ```js
-const db = require('enchanced.db')
+const db = require('enhanced.db')
 const table = new db.Table('myTable', options)
 // 'myTable' is your table name
 // Options is same as you saw in the first 'clearOnStart' and 'filename'
@@ -89,12 +89,12 @@ table.includes('foo', 'bar') // Will return true
 
 ## Some Utility
 ```js
-const db = require('enchanced.db')
+const db = require('enhanced.db')
 
 db.version // Returns current version of the package
-db.uptime // Uptime of the project with Enchanced.db
+db.uptime // Uptime of the project with Enhanced.db
 ```
 
 ## From Science Spot AKA Scientific Guy
 - [Support: Discord Server](https://discord.gg/FrduEZd)
-- [Issues: Github Repo](https://github.com/Scientific-Guy/enchanced.db)
+- [Issues: Github Repo](https://github.com/Scientific-Guy/enhanced.db)
