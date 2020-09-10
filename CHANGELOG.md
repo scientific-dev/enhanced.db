@@ -2,7 +2,7 @@
 
 ---
 
-## v0.10.00
+## v0.10.10
 
 ### Important Things Updated
 - Name Changed
