@@ -6,7 +6,7 @@ class Table{
     if(!tablename) tablename = 'database'
 
     if(options.clearOnStart != true) options.clearOnStart = false
-    if(!options.filename) options.filename = 'enchanced.sqlite'
+    if(!options.filename) options.filename = 'enhanced.sqlite'
 
     this.tablename = tablename
     this.startedAt = Date.now()
@@ -121,7 +121,7 @@ class Table{
 
   import(data){
     if(!data) throw new Error('Missing Data!')
-    if(!Array.isArray(data)) throw new Error('Invalid Enchanced.DB Data!')
+    if(!Array.isArray(data)) throw new Error('Invalid Enhanced.DB Data!')
 
     data.forEach(d => {
       try{ this.base.set(d.key, d.value) }catch(e) { console.log(`Failed to import: ${d}`) }
