@@ -1,6 +1,6 @@
 # Enhanced.DB
 
-> **Note:** This package was first published as Enchanced.DB but later i found that there was a very big spelling mistake XD so we changed the nme to Enhanced.DB so need not to worry as it is almost same to it!
+> **Note:** This package was first published as Enhanced.DB but later i found that there was a very big spelling mistake XD so we changed the nme to Enhanced.DB so need not to worry as it is almost same to it!
 
 You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
 **Docs:** https://github.com/Scientific-Guy/enhanced.db/blob/master/docs.md
@@ -13,8 +13,8 @@ const options = {
     clearOnStart: false,
     filename: 'kek.sqlite'
 }
-// Setting clearOnStart true will clear the whole enchanced.sqlite. That would be false by default so if you dont need of that option no need of using options parameter!
-// You can setup ur own custom file directory or location! But must be perfect for Sqlite Environment! It would be default to enchanced.sqlite!
+// Setting clearOnStart true will clear the whole enhanced.sqlite. That would be false by default so if you dont need of that option no need of using options parameter!
+// You can setup ur own custom file directory or location! But must be perfect for Sqlite Environment! It would be default to enhanced.sqlite!
 
 // Will apply options to the default database table
 db.options(options)
