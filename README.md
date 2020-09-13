@@ -1,11 +1,8 @@
 # Enhanced.DB
 
-
 You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
 
-**Docs:** [https://enhanceddb.science.repl.co/](https://enhanceddb.science.repl.co/)
-
-![Enhanced.DB](https://nodei.co/npm/enhanced.db.png)
+**Docs:** https://enhanceddb.science.repl.co/
 
 ```js
 const db = require('enhanced.db')
@@ -13,10 +10,12 @@ const db = require('enhanced.db')
 // Set Options
 const options = {
     clearOnStart: false,
-    filename: 'kek.sqlite'
+    filename: 'kek.sqlite',
+    backup: 'backup.sqlite'
 }
 // Setting clearOnStart true will clear the whole enhanced.sqlite. That would be false by default so if you dont need of that option no need of using options parameter!
 // You can setup ur own custom file directory or location! But must be perfect for Sqlite Environment! It would be default to enhanced.sqlite!
+// Backup will be the file where your sqlite data will be stored if the data is been damaged manually!
 
 // Will apply options to the default database table
 db.options(options)
@@ -67,7 +66,7 @@ Create a custom table name which will be apart from the default database table
 const db = require('enhanced.db')
 const table = new db.Table('myTable', options)
 // 'myTable' is your table name
-// Options is same as you saw in the first 'clearOnStart' and 'filename'
+// Options is same as you saw in the first 'clearOnStart', 'backup' and 'filename'
 
 table.set('foo', 'bar') // Will set value
 table.get('foo') // Will return bar
