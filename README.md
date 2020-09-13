@@ -7,8 +7,6 @@ You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
 
 ![Enhanced.DB](https://nodei.co/npm/enhanced.db.png)
 
-[![Discord Server](https://discordapp.com/api/guilds/736099894963601438/embed.png)](https://discord.gg/sfyNXZx)
-
 ```js
 const db = require('enhanced.db')
 
