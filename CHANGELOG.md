@@ -2,6 +2,19 @@
 
 ---
 
+## v0.10.50
+
+### Important Things Updates
+- Added Read Class
+- Backup Option Added
+
+### Things 
+- Added Read Class
+- Backup Option Added
+- Can also use fetch()
+
+---
+
 ## v0.10.10
 
 ### Important Things Updated
