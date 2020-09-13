@@ -1,12 +1,13 @@
 # Enhanced.DB
 
-> **Note:** This package was first published as Enhanced.DB but later i found that there was a very big spelling mistake XD so we changed the name to Enhanced.DB so need not to worry as it is almost same to it!
 
 You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
 
 **Docs:** [https://enhanceddb.science.repl.co/](https://enhanceddb.science.repl.co/)
 
 ![Enhanced.DB](https://nodei.co/npm/enhanced.db.png)
+
+[![Discord Server](https://discordapp.com/api/guilds/298508738623438848/embed.png)](https://discord.gg/sfyNXZx)
 
 ```js
 const db = require('enhanced.db')
