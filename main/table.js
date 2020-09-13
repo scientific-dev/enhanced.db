@@ -6,7 +6,7 @@ class Table{
     if(!tablename) tablename = 'database'
 
     if(options.clearOnStart != true) options.clearOnStart = false
-    if(!options.filename) options.filename = 'enhanced.sqlite'
+    if(!options.filename) options.filename = 'enchanced.sqlite'
 
     this.tablename = tablename
     this.startedAt = Date.now()
@@ -18,6 +18,10 @@ class Table{
     if(options.clearOnStart){
       this.base.all().map(db => db.key).forEach(key => this.base.delete(key))
     }
+
+    if(options.backup){
+      fs.writeFileSync(options.backup, fs.readFileSync(options.filename))
+    }
   }
 
   set(key, value){
@@ -28,6 +32,13 @@ class Table{
   }
 
   get(key){
+    if(!key) throw new Error('You are either missing key to get!')
+    if(key.includes(' ')) throw new Error('You should not use spaces in key!')
+    if(typeof key != 'string') throw new Error('Typeof key must be a string!')
+    try { return JSON.parse(this.base.get(key)) }catch (e){ return this.base.get(key) }
+  }
+
+  fetch(key){
     if(!key) throw new Error('You are either missing key to get!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
@@ -121,7 +132,7 @@ class Table{
 
   import(data){
     if(!data) throw new Error('Missing Data!')
-    if(!Array.isArray(data)) throw new Error('Invalid Enhanced.DB Data!')
+    if(!Array.isArray(data)) throw new Error('Invalid Enchanced.DB Data!')
 
     data.forEach(d => {
       try{ this.base.set(d.key, d.value) }catch(e) { console.log(`Failed to import: ${d}`) }
