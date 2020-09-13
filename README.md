@@ -3,7 +3,10 @@
 > **Note:** This package was first published as Enhanced.DB but later i found that there was a very big spelling mistake XD so we changed the name to Enhanced.DB so need not to worry as it is almost same to it!
 
 You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
-**Docs:** https://github.com/Scientific-Guy/enhanced.db/blob/master/docs.md
+
+**Docs:** [https://enhanceddb.science.repl.co/](https://enhanceddb.science.repl.co/)
+
+![Enhanced.DB](https://nodei.co/npm/enhanced.db.png)
 
 ```js
 const db = require('enhanced.db')
