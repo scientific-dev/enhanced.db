@@ -25,9 +25,20 @@ class Table{
   }
 
   set(key, value){
-    if(!key || !value) throw new Error('You are either missing key or value to set!')
+    if(!key || (!value && ![false, 0].includes(value))) throw new Error('You are either missing key or value to set!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
+    if(key.includes('.')){
+      let args = (key.split('.').slice(1)).join('')
+      key = key.split('.')[0]
+      let oldValue = this.base.get(key)
+      if(typeof oldValue == 'object'){
+        console.log(oldValue)
+        oldValue[args] = value
+        console.log(args + key)
+        return this.base.set(key,  oldValue)
+      }
+    }
     return this.base.set(key, value)
   }
 
@@ -35,7 +46,7 @@ class Table{
     if(!key) throw new Error('You are either missing key to get!')
     if(key.includes(' ')) throw new Error('You should not use spaces in key!')
     if(typeof key != 'string') throw new Error('Typeof key must be a string!')
-    try { return JSON.parse(this.base.get(key)) }catch (e){ return this.base.get(key) }
+    return this.base.get(key)
   }
 
   fetch(key){
