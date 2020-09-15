@@ -8,7 +8,7 @@ You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
 const db = require('enhanced.db')
 
 // Set Options
-const options = {
+const options = { 
     clearOnStart: false,
     filename: 'kek.sqlite',
     backup: 'backup.sqlite'
