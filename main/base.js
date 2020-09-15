@@ -25,7 +25,7 @@ class Base{
     let value = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
 
     if(!value) return null
-    return value.value
+    try { return JSON.parse(value.value) }catch (e){ return value.value }
   }
 
   delete(key){
