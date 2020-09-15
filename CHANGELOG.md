@@ -2,13 +2,30 @@
 
 ---
 
+## v0.10.90
+
+### Important Things Updates
+- Added JSON Routing to set()
+- Backup Option Added
+
+### Things Updated
+- Added Read Class
+- Backup Option Added
+- Bugfix
+
+---
+
+# v0.10.6 and v0.10.8 are Test Versions...
+
+---
+
 ## v0.10.50
 
 ### Important Things Updates
 - Added Read Class
 - Backup Option Added
 
-### Things 
+### Things Updated
 - Added Read Class
 - Backup Option Added
 - Can also use fetch()
