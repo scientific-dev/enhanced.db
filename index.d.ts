@@ -2,12 +2,12 @@ export const version: string;
 export const startedAt: number;
 
 interface optionType{
-    clearOnStart: boolean,
-    filename: string
+    clearOnStart?: boolean,
+    filename?: string
 }
 
 interface readOptionType{
-    table: string
+    table?: string
 }
 
 type data = boolean | string | number | object | any[]
