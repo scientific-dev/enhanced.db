@@ -2,9 +2,27 @@
 
 ---
 
+## v0.30.0
+
+### Important Things Updated
+- Removed Backup Option to prevent slowing down
+- Default file name changed
+- Added docs in files
+- Typescript support
+- is() function added
+
+### Things Updated
+- Removed Backup Option to prevent slowing down
+- Default file name changed
+- Added docs in files
+- Typescript support
+- is() function added
+
+---
+
 ## v0.10.90
 
-### Important Things Updates
+### Important Things Updated
 - Added JSON Routing to set()
 - Backup Option Added
 
