@@ -1,6 +1,19 @@
 const base = require('./base.js')
 
+/**
+ * Read EDB Sqlite files and will return data!
+ */
+
 class Read{
+
+  /**
+   * Read Class to read edb sqlite files
+   * @param {string} filename 
+   * @param {object} options 
+   * @example const { Read } = require('enhanced.db')
+   * const data = new Read('myOldFile.sqlite', { table: 'myCustomTable' })
+   */
+
   constructor(filename, options={}){
     if(!filename) throw new Error('Missing filepath or filename!')
     if(!options.table) options.table = 'database'
@@ -10,18 +23,18 @@ class Read{
     this.base = new base(this.options.table, this.filename)
   }
 
-  get(){
-    if(!this.options.returnAs){
-      return this.base.all()
-    }
+  /**
+   * Render the data by the given options from the constructor
+   * @example const renderedData = data.get() // Now you have got all the data in object[] form
+   */
 
-    let result = []
-    let returnAs = this.options.returnAs
-    this.base.all().forEach(x => {
-      result.push(JSON.parse(`{"${returnAs.key}": ${JSON.stringify(x.key)}, "${returnAs.value}": ${JSON.stringify(x.value)}}`))
-    })
-    return result
+  get(){
+    return this.base.all()
   }
 }
+
+/**
+ * Export the table
+ */
 
 module.exports = Read
