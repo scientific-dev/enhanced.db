@@ -1,4 +1,4 @@
-# Enhanced.DB
+# Enhanced.DB 
 
 You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)! 
 This package workd good with Typescript too...
