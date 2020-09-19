@@ -1,3 +1,8 @@
+/**
+ * Main file
+ * Export thing all methods, functions, etc
+ */
+
 const fs = require('fs')
 const startedAt = Date.now()
 
@@ -7,7 +12,6 @@ module.exports = {
   options: (options) => this.options = options,
   version: require('./package.json').version,
   startedAt: startedAt,
-  uptime: Date.now()-startedAt,
   Table: require('./main/table.js'),
   Read: require('./main/read.js'),
   set: (key, value) => db(this.options).set(key, value),
@@ -21,9 +25,9 @@ module.exports = {
   subtract: (key, amount) => db(this.options).subtract(key, amount),
   push: (key, value) => db(this.options).push(key, value),
   includes: (key, value) => db(this.options).includes(key, value),
+  is: (key, value) => db(this.options).is(key, value),
   delete: (key) => db(this.options).delete(key),
   deleteAll: () => db(this.options).deleteTable(),
-  latency: () => db(this.options).latency(),
   import: (data) => db(this.options).import(data),
   importQuick: (data) => db(this.options).importQuick(data)
 }
