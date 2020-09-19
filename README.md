@@ -1,6 +1,7 @@
 # Enhanced.DB
 
-You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
+You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)!
+This package workd good with Typescript too...
 
 **Docs:** https://enhanceddb.science.repl.co/
 
@@ -8,14 +9,12 @@ You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)
 const db = require('enhanced.db')
 
 // Set Options
-const options = { 
+const options = {
     clearOnStart: false,
-    filename: 'kek.sqlite',
-    backup: 'backup.sqlite'
+    filename: 'kek.sqlite'
 }
 // Setting clearOnStart true will clear the whole enhanced.sqlite. That would be false by default so if you dont need of that option no need of using options parameter!
 // You can setup ur own custom file directory or location! But must be perfect for Sqlite Environment! It would be default to enhanced.sqlite!
-// Backup will be the file where your sqlite data will be stored if the data is been damaged manually!
 
 // Will apply options to the default database table
 db.options(options)
@@ -28,6 +27,7 @@ db.set('foo', 'bar') // Will set value
 db.get('foo') // Will return bar
 db.has('foo') // Will return true
 db.type('foo') // Will return string
+db.is('foo', 'bar') // Will return true
 
 db.all() // Will return all data
 db.startsWith('f') // Will send you the array of the data which key's starts with f
@@ -66,12 +66,13 @@ Create a custom table name which will be apart from the default database table
 const db = require('enhanced.db')
 const table = new db.Table('myTable', options)
 // 'myTable' is your table name
-// Options is same as you saw in the first 'clearOnStart', 'backup' and 'filename'
+// Options is same as you saw in the first 'clearOnStart' and 'filename'
 
 table.set('foo', 'bar') // Will set value
 table.get('foo') // Will return bar
 table.has('foo') // Will return true
 table.type('foo') // Will return string
+table.is('foo', 'bar') // Will return true
 
 table.all() // Will return all data
 table.startsWith('f') // Will send you the array of the data which key's starts with f
@@ -93,7 +94,28 @@ table.includes('foo', 'bar') // Will return true
 const db = require('enhanced.db')
 
 db.version // Returns current version of the package
-db.uptime // Uptime of the project with Enhanced.db
+```
+
+## Read EDB Sqlite files
+
+Using this class you can read edb sqlite files and use import to import data!
+
+```js
+// Import Read Constructor
+const { Read } = require("enhanced.db")
+
+// Set options if needed
+const options = {
+    table: 'myCustomTable'
+}
+// Setting table will read that table of that file else it will read the default database one!
+
+const data = new Read(filename, options)
+// FIlename would be the name of the file to read
+
+console.log(data.get())
+// Will you return the the data selected as your options selected!
+
 ```
 
 ## From Science Spot AKA Scientific Guy
