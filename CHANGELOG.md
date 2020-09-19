@@ -2,7 +2,7 @@
 
 ---
 
-## v0.30.0
+## v0.30.4
 
 ### Important Things Updated
 - Removed Backup Option to prevent slowing down
