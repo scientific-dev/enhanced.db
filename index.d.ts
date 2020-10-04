@@ -31,7 +31,7 @@ export function includes(key: string, value: data): boolean;
 export function is(key: string, value: data): boolean;
 export function options(options: optionType): void;
 export function deleteAll(): void;
-export function importQuick(data: {key: string, value: data}): void;
+export function importQuick(data: keyValue[]): void;
 
 function imp(data: keyValue[]): void;
 function del(key: string): void;
@@ -40,7 +40,7 @@ export { del as delete };
 export { imp as import };
 
 export class Table{
-    constructor(tablename: string, options?: optionType);
+    public constructor(tablename: string, options?: optionType);
 
     public tablename: string;
     public startedAt: number;
@@ -63,7 +63,7 @@ export class Table{
     public import(data: keyValue[]): void;
     public delete(key: string): void;
     public deleteAll(): void;
-    public importQuick(data: {key: string, value: data}): void;
+    public importQuick(data: keyValue[]): void;
 }
 
 export class Read{
