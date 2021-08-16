@@ -5,26 +5,26 @@
 So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB** but this one is recreated without any source code. Then nothing to say! The Docs will say everything
 
 # Index
-- [Requirements](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#requirements)
-- [Things to know](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#things-to-know)
-- [Getting Started](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#getting-started)
-  - [Set](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#set)
-  - [Get](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#get)
-  - [All](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#all)
-  - [StartsWith](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#startswith)
-  - [Has](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#has)
-  - [Type](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#type)
-  - [Add](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#add)
-  - [Subtract](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#subtract)
-  - [Options](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#options)
-  - [Push](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#push)
-  - [Includes](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#includes)
-  - [Delete](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#delete)
-  - [DeleteAll](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#deleteall)
-  - [Import](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#import)
-  - [ImportQuick](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#importquick)
-- [Introduction To Tables](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#introduction-to-tables)
-- [Some Links](https://github.com/Scientific-Guy/enchanced.db/blob/master/docs.md#some-links)
+- [Requirements](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#requirements)
+- [Things to know](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#things-to-know)
+- [Getting Started](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#getting-started)
+  - [Set](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#set)
+  - [Get](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#get)
+  - [All](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#all)
+  - [StartsWith](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#startswith)
+  - [Has](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#has)
+  - [Type](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#type)
+  - [Add](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#add)
+  - [Subtract](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#subtract)
+  - [Options](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#options)
+  - [Push](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#push)
+  - [Includes](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#includes)
+  - [Delete](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#delete)
+  - [DeleteAll](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#deleteall)
+  - [Import](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#import)
+  - [ImportQuick](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#importquick)
+- [Introduction To Tables](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#introduction-to-tables)
+- [Some Links](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#some-links)
 
 # Requirements
 - v0.0.90 of **Enchanced.DB** or higher
@@ -250,4 +250,4 @@ If you have read the docs from first then you have learnt **Enchanced.DB** final
 
 # Some Links
  - **Discord Server Link:** [https://discord.gg/FrduEZd](https://discord.gg/FrduEZd)
- - **GitHub Repo Link:** [https://github.com/Scientific-Guy/enchanced.db](https://github.com/Scientific-Guy/enchanced.db)
+ - **GitHub Repo Link:** [https://github.com/scientific-dev/enchanced.db](https://github.com/scientific-dev/enchanced.db)
