@@ -25,7 +25,7 @@
     "author": "science_spot_codes",
     "license": "MIT",
     "dependencies": {
-      "better-sqlite3": "^7.1.0",
+      "better-sqlite3": "^8.4.0",
       "fs": "^0.0.2"
     }
   }
