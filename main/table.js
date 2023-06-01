@@ -285,7 +285,7 @@ class Table {
 
   includes (key, value) {
     if (!key || !value) throw new Error('Missing key or value!')
-    let result = this.base.get(key)
+    const result = this.base.get(key)
     if (!Array.isArray(result)) throw new Error('Target is not an Array!')
     return result.includes(key)
   }
