@@ -1,5 +1,5 @@
 {
-    "name": "enhanced.db",
+    "name": "enhanced.db-new",
     "version": "1.0.0",
     "description": "Create a simple database using better-sqlite3, quick, fast and more enhanced!",
     "main": "index.js",
