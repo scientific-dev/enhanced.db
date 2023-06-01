@@ -1,9 +1,6 @@
 # Enhanced.DB
 
-You can help us by joining our [Discord Server](https://discord.gg/FrduEZd)!
-This package workd good with Typescript too...
-
-**Docs:** https://enhanceddb.science.repl.co/
+**Docs:** [docs.md](https://github.com/ItzMiracleOwO/enhanced.db/blob/master/docs.md)
 
 ```js
 const db = require("enhanced.db");
@@ -72,23 +69,8 @@ const table = new db.Table("myTable", options);
 
 table.set("foo", "bar"); // Will set value
 table.get("foo"); // Will return bar
-table.has("foo"); // Will return true
-table.type("foo"); // Will return string
-table.is("foo", "bar"); // Will return true
 
-table.all(); // Will return all data
-table.startsWith("f"); // Will send you the array of the data which key's starts with f
-
-table.set("foo", 1);
-table.add("foo", 2); // Value would be 3
-table.subtract("foo", 2); // Value would be 2
-
-table.delete("f"); // Will delete key 'f'
-table.deleteTable(); // Will clear whole database! This will work only for custom table!
-
-table.set("foo", ["foo"]);
-table.push("foo", "bar"); // Will push value to the array!
-table.includes("foo", "bar"); // Will return true
+// Bascially all methods work also in Tables!
 ```
 
 ## Some Utility
@@ -122,5 +104,5 @@ console.log(data.get());
 
 ## From Science Spot AKA Scientific Guy
 
-- [Support: Discord Server](https://discord.gg/FrduEZd)
-- [Issues: Github Repo](https://github.com/Scientific-Guy/enhanced.db)
+- ~[Support: Discord Server](https://discord.gg/FrduEZd)~ Sadly this does not work anymore
+- [Issues: Github Repo](https://github.com/ItzMiracleOwO/enhanced.db)
