@@ -3,15 +3,14 @@
  * This file cannot be accessed because its directly linked to table.js
  */
 
-class Base{
-  
+class Base {
   /**
    * Will connect to sqlite file
-   * @param {string} table 
-   * @param {string} filename 
+   * @param {string} table
+   * @param {string} filename
    */
 
-  constructor(table, filename){
+  constructor (table, filename) {
     this.table = table
     this.filename = filename
     this.db = require('better-sqlite3')(this.filename)
@@ -23,12 +22,12 @@ class Base{
    * @param {any} value data
    */
 
-  set(key, value){
+  set (key, value) {
     this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
-    
-    let fetchedData =  this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
 
-    if(!fetchedData){
+    let fetchedData = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
+
+    if (!fetchedData) {
       this.db.prepare(`INSERT INTO ${this.table} (key, value) VALUES (?,?)`).run(key, '{}')
       fetchedData = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
     }
@@ -42,13 +41,13 @@ class Base{
    * @param {string} key ID
    */
 
-  get(key){
+  get (key) {
     this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
 
-    let value = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
+    const value = this.db.prepare(`SELECT * FROM ${this.table} WHERE key = (?)`).get(key)
 
-    if(!value) return null
-    try { return JSON.parse(value.value) }catch (e){ return value.value }
+    if (!value) return null
+    try { return JSON.parse(value.value) } catch (e) { return value.value }
   }
 
   /**
@@ -56,24 +55,23 @@ class Base{
    * @param {string} key ID
    */
 
-  delete(key){
+  delete (key) {
     this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
-    this.db.prepare(`DELETE FROM ${this.table} WHERE key = (?)`).run(key);
-    return
+    this.db.prepare(`DELETE FROM ${this.table} WHERE key = (?)`).run(key)
   }
 
   /**
    * Get all values of a key
    */
 
-  all(){
+  all () {
     this.db.prepare(`CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`).run()
 
-    var statement = this.db.prepare(`SELECT * FROM ${this.table} WHERE key IS NOT NULL`), data = statement.iterate()
-    let result = []
+    const statement = this.db.prepare(`SELECT * FROM ${this.table} WHERE key IS NOT NULL`); const data = statement.iterate()
+    const result = []
 
-    for(var set of data){
-      result.push({key: set.key, value: JSON.parse(set.value)})
+    for (const set of data) {
+      result.push({ key: set.key, value: JSON.parse(set.value) })
     }
 
     return result

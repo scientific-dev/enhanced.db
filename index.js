@@ -3,17 +3,17 @@
  * Export thing all methods, functions, etc
  */
 
-const fs = require('fs')
 const startedAt = Date.now()
 
-this.db = new (require('./main/table.js'))('database')
+const Table = require('./main/table.js')
+const read = require('./main/read.js')
 
 module.exports = {
-  options: (options) => this.db = new (require('./main/table.js'))('database', options),
+  options: (options) => (this.db = new Table('database', options)),
+  startedAt,
   version: require('./package.json').version,
-  startedAt: startedAt,
-  Table: require('./main/table.js'),
-  Read: require('./main/read.js'),
+  Table,
+  Read: read,
   set: (key, value) => this.db.set(key, value),
   get: (key) => this.db.get(key),
   fetch: (key) => this.db.fetch(key),
