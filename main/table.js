@@ -1,4 +1,4 @@
-const Base = require('./base.js')
+const Base = require("./base.js");
 
 /**
  * Better Sqlite 3 Wrapper with more enhanced features!
@@ -13,29 +13,29 @@ class Table {
    * const table = new Table('myTable', { clearOnStart: false, filename: 'foo.sqlite' })
    */
 
-  constructor (tablename, options) {
+  constructor(tablename, options) {
     if (!tablename) {
-      tablename = 'database'
+      tablename = "database";
     }
 
     if (options.clearOnStart !== true) {
-      options.clearOnStart = false
+      options.clearOnStart = false;
     }
-    if (options.filename === '') {
-      options.filename = 'enhanced.sqlite'
+    if (options.filename === "") {
+      options.filename = "enhanced.sqlite";
     }
 
-    this.tablename = tablename
-    this.startedAt = Date.now()
-    this.options = options
-    this.filename = options.filename
-    this.base = new Base(this.tablename, this.filename)
+    this.tablename = tablename;
+    this.startedAt = Date.now();
+    this.options = options;
+    this.filename = options.filename;
+    this.base = new Base(this.tablename, this.filename);
 
     if (options.clearOnStart) {
       this.base
         .all()
         .map((db) => db.key)
-        .forEach((key) => this.base.delete(key))
+        .forEach((key) => this.base.delete(key));
     }
   }
 
@@ -46,26 +46,26 @@ class Table {
    * @example table.set('foo', 'bar')
    */
 
-  set (key, value) {
+  set(key, value) {
     if (!key || (!value && ![false, 0].includes(value))) {
-      throw new Error('You are either missing key or value to set!')
+      throw new Error("You are either missing key or value to set!");
     }
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
-    if (key.includes('.')) {
-      const args = key.split('.').slice(1).join('')
-      key = key.split('.')[0]
-      const oldValue = this.base.get(key)
-      if (typeof oldValue === 'object') {
-        console.log(oldValue)
-        oldValue[args] = value
-        console.log(args + key)
-        return this.base.set(key, oldValue)
+    if (key.includes(".")) {
+      const args = key.split(".").slice(1).join("");
+      key = key.split(".")[0];
+      const oldValue = this.base.get(key);
+      if (typeof oldValue === "object") {
+        console.log(oldValue);
+        oldValue[args] = value;
+        console.log(args + key);
+        return this.base.set(key, oldValue);
       }
     }
-    return this.base.set(key, value)
+    return this.base.set(key, value);
   }
 
   /**
@@ -74,13 +74,13 @@ class Table {
    * @example table.get('foo')
    */
 
-  get (key) {
-    if (!key) throw new Error('You are either missing key to get!')
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+  get(key) {
+    if (!key) throw new Error("You are either missing key to get!");
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
-    return this.base.get(key)
+    return this.base.get(key);
   }
 
   /**
@@ -89,13 +89,13 @@ class Table {
    * @example table.fetch('foo')
    */
 
-  fetch (key) {
-    if (!key) throw new Error('You are either missing key to get!')
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+  fetch(key) {
+    if (!key) throw new Error("You are either missing key to get!");
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
-    return this.base.get(key)
+    return this.base.get(key);
   }
 
   /**
@@ -104,13 +104,13 @@ class Table {
    * table.delete('foo')
    */
 
-  delete (key) {
-    if (!key) throw new Error('You are either missing key to delete!')
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+  delete(key) {
+    if (!key) throw new Error("You are either missing key to delete!");
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
-    return this.base.delete(key)
+    return this.base.delete(key);
   }
 
   /**
@@ -118,8 +118,8 @@ class Table {
    * @example table.all()
    */
 
-  all () {
-    return this.base.all()
+  all() {
+    return this.base.all();
   }
 
   /**
@@ -128,19 +128,19 @@ class Table {
    * @example table.startsWith('foo')
    */
 
-  startsWith (search) {
-    if (!search) throw new Error('You are missing search parameter!')
-    if (typeof search !== 'string') {
-      throw new Error('Typeof search parameter must be a string!')
+  startsWith(search) {
+    if (!search) throw new Error("You are missing search parameter!");
+    if (typeof search !== "string") {
+      throw new Error("Typeof search parameter must be a string!");
     }
 
-    const all = this.base.all()
-    const result = []
+    const all = this.base.all();
+    const result = [];
     for (let i = 0; i < all.length; i++) {
-      if (all[i].key.startsWith(search)) result.push(all[i])
+      if (all[i].key.startsWith(search)) result.push(all[i]);
     }
 
-    return result
+    return result;
   }
 
   /**
@@ -150,25 +150,25 @@ class Table {
    * @example table.add('foo', 1)
    */
 
-  add (key, amount) {
+  add(key, amount) {
     if (!key || !amount) {
-      throw new Error('You are either missing key or amount to add!')
+      throw new Error("You are either missing key or amount to add!");
     }
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
-    amount = parseInt(amount)
-    if (typeof amount !== 'number') {
-      throw new Error('Typeof amount must be a number to add!')
-    }
-
-    const oldValue = parseInt(this.base.get(key))
-    if (typeof oldValue !== 'number') {
-      throw new Error('Target is not a number!')
+    amount = parseInt(amount);
+    if (typeof amount !== "number") {
+      throw new Error("Typeof amount must be a number to add!");
     }
 
-    return this.base.set(key, Math.floor(oldValue + amount))
+    const oldValue = parseInt(this.base.get(key));
+    if (typeof oldValue !== "number") {
+      throw new Error("Target is not a number!");
+    }
+
+    return this.base.set(key, Math.floor(oldValue + amount));
   }
 
   /**
@@ -178,25 +178,25 @@ class Table {
    * @example table.subtract('foo', 1)
    */
 
-  subtract (key, amount) {
+  subtract(key, amount) {
     if (!key || !amount) {
-      throw new Error('You are either missing key or amount to subtract!')
+      throw new Error("You are either missing key or amount to subtract!");
     }
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
-    amount = parseInt(amount)
-    if (typeof amount !== 'number') {
-      throw new Error('Typeof amount must be a number to subtract!')
-    }
-
-    const oldValue = parseInt(this.base.get(key))
-    if (typeof oldValue !== 'number') {
-      throw new Error('Target is not a number!')
+    amount = parseInt(amount);
+    if (typeof amount !== "number") {
+      throw new Error("Typeof amount must be a number to subtract!");
     }
 
-    return this.base.set(key, Math.floor(oldValue - amount))
+    const oldValue = parseInt(this.base.get(key));
+    if (typeof oldValue !== "number") {
+      throw new Error("Target is not a number!");
+    }
+
+    return this.base.set(key, Math.floor(oldValue - amount));
   }
 
   /**
@@ -205,23 +205,23 @@ class Table {
    * @param {any} value Value to push
    */
 
-  push (key, value) {
+  push(key, value) {
     if (!key || !value) {
-      throw new Error('You are either missing key or value to push!')
+      throw new Error("You are either missing key or value to push!");
     }
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
 
-    let oldValue = this.base.get(key)
+    let oldValue = this.base.get(key);
 
-    if (!Array.isArray(oldValue)) oldValue = [oldValue]
+    if (!Array.isArray(oldValue)) oldValue = [oldValue];
 
-    oldValue.push(value)
-    oldValue = oldValue.filter((x) => x !== null)
+    oldValue.push(value);
+    oldValue = oldValue.filter((x) => x !== null);
 
-    return this.base.set(key, oldValue)
+    return this.base.set(key, oldValue);
   }
 
   /**
@@ -229,11 +229,11 @@ class Table {
    * @example table.deleteTable()
    */
 
-  deleteTable () {
+  deleteTable() {
     this.base
       .all()
       .map((db) => db.key)
-      .forEach((key) => this.base.delete(key))
+      .forEach((key) => this.base.delete(key));
   }
 
   /**
@@ -242,16 +242,16 @@ class Table {
    * @example table.has('foo')
    */
 
-  has (key) {
-    if (!key) throw new Error('You are either missing key to find!')
-    if (key.includes(' ')) throw new Error('You should not use spaces in key!')
-    if (typeof key !== 'string') {
-      throw new Error('Typeof key must be a string!')
+  has(key) {
+    if (!key) throw new Error("You are either missing key to find!");
+    if (key.includes(" ")) throw new Error("You should not use spaces in key!");
+    if (typeof key !== "string") {
+      throw new Error("Typeof key must be a string!");
     }
 
-    const value = this.base.get(key)
-    if (!value) return false
-    else return true
+    const value = this.base.get(key);
+    if (!value) return false;
+    else return true;
   }
 
   /**
@@ -261,19 +261,19 @@ class Table {
    * table.importQuick(quick.all())
    */
 
-  importQuick (data) {
-    if (!data) throw new Error('Missing Data!')
-    if (!Array.isArray(data)) throw new Error('Invalid Quick.DB Data!')
+  importQuick(data) {
+    if (!data) throw new Error("Missing Data!");
+    if (!Array.isArray(data)) throw new Error("Invalid Quick.DB Data!");
 
     data.forEach((d) => {
       try {
-        this.base.set(d.ID, d.data)
+        this.base.set(d.ID, d.data);
       } catch (e) {
-        console.log(`Failed to import: ${d}`)
+        console.log(`Failed to import: ${d}`);
       }
-    })
+    });
 
-    return console.log('Finished Importing!')
+    return console.log("Finished Importing!");
   }
 
   /**
@@ -281,19 +281,19 @@ class Table {
    * @param {array} data Other file or table data of Enhanced.DB
    */
 
-  import (data) {
-    if (!data) throw new Error('Missing Data!')
-    if (!Array.isArray(data)) throw new Error('Invalid Enhanced.DB Data!')
+  import(data) {
+    if (!data) throw new Error("Missing Data!");
+    if (!Array.isArray(data)) throw new Error("Invalid Enhanced.DB Data!");
 
     data.forEach((d) => {
       try {
-        this.base.set(d.key, d.value)
+        this.base.set(d.key, d.value);
       } catch (e) {
-        console.log(`Failed to import: ${d}`)
+        console.log(`Failed to import: ${d}`);
       }
-    })
+    });
 
-    return console.log('Finished Importing!')
+    return console.log("Finished Importing!");
   }
 
   /**
@@ -302,11 +302,11 @@ class Table {
    * @example table.type('foo')
    */
 
-  type (key) {
+  type(key) {
     try {
-      return typeof JSON.parse(this.base.get(key))
+      return typeof JSON.parse(this.base.get(key));
     } catch (e) {
-      return typeof this.base.get(key)
+      return typeof this.base.get(key);
     }
   }
 
@@ -317,11 +317,11 @@ class Table {
    * @example table.includes('foo', 'o') // Will return true!
    */
 
-  includes (key, value) {
-    if (!key || !value) throw new Error('Missing key or value!')
-    const result = this.base.get(key)
-    if (!Array.isArray(result)) throw new Error('Target is not an Array!')
-    return result.includes(key)
+  includes(key, value) {
+    if (!key || !value) throw new Error("Missing key or value!");
+    const result = this.base.get(key);
+    if (!Array.isArray(result)) throw new Error("Target is not an Array!");
+    return result.includes(key);
   }
 
   /**
@@ -332,11 +332,11 @@ class Table {
    * table.is('foo', 'bar') // Will return true
    */
 
-  is (key, value) {
+  is(key, value) {
     if (!key || (!value && ![false, 0].includes(value))) {
-      throw new Error('Missing Key or value!')
+      throw new Error("Missing Key or value!");
     }
-    return this.base.get(key) === value
+    return this.base.get(key) === value;
   }
 }
 
@@ -344,4 +344,4 @@ class Table {
  * Export the Table
  */
 
-module.exports = Table
+module.exports = Table;
