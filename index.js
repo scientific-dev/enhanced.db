@@ -3,15 +3,15 @@
  * Export thing all methods, functions, etc
  */
 
-const startedAt = Date.now();
+const startedAt = Date.now()
 
-const Table = require("./main/table.js");
-const read = require("./main/read.js");
+const Table = require('./main/table.js')
+const read = require('./main/read.js')
 
 module.exports = {
-  options: (options) => (this.db = new Table("database", options)),
+  options: (options) => (this.db = new Table('database', options)),
   startedAt,
-  version: require("./package.json").version,
+  version: require('./package.json').version,
   Table,
   Read: read,
   set: (key, value) => this.db.set(key, value),
@@ -29,5 +29,5 @@ module.exports = {
   delete: (key) => this.db.delete(key),
   deleteAll: () => this.db.deleteTable(),
   import: (data) => this.db.import(data),
-  importQuick: (data) => this.db.importQuick(data),
-};
+  importQuick: (data) => this.db.importQuick(data)
+}
