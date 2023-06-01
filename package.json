@@ -1,6 +1,6 @@
 {
     "name": "enhanced.db",
-    "version": "0.3.4",
+    "version": "1.0.0",
     "description": "Create a simple database using better-sqlite3, quick, fast and more enhanced!",
     "main": "index.js",
     "types": "index.d.ts",
@@ -22,7 +22,7 @@
         "snowflake",
         "science_spot_codes"
     ],
-    "author": "science_spot_codes",
+    "author": "_tsuki__",
     "license": "MIT",
     "dependencies": {
         "better-sqlite3": "^8.4.0"
