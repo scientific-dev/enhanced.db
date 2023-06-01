@@ -1,37 +1,37 @@
 {
-    "name": "enhanced.db-new",
-    "version": "1.0.0",
-    "description": "Create a simple database using better-sqlite3, quick, fast and more enhanced!",
-    "main": "index.js",
-    "types": "index.d.ts",
-    "keywords": [
-        "json.db",
-        "enchanced.db",
-        "enhanced.db",
-        "jsondb.ez",
-        "jsondb",
-        "easy-json-database",
-        "quick.json",
-        "easy-json-database",
-        "database",
-        "quick.db",
-        "mongo.eco",
-        "factful.js",
-        "node-periodic-table",
-        "quickmongo",
-        "snowflake",
-        "science_spot_codes"
-    ],
-    "author": "_tsuki__",
-    "license": "MIT",
-    "dependencies": {
-        "better-sqlite3": "^8.4.0"
-    },
-    "devDependencies": {
-        "eslint": "^8.41.0",
-        "eslint-config-standard": "^17.1.0",
-        "eslint-plugin-import": "^2.27.5",
-        "eslint-plugin-n": "^16.0.0",
-        "eslint-plugin-promise": "^6.1.1"
-    }
+  "name": "enhanced.db-new",
+  "version": "1.0.0",
+  "description": "Create a simple database using better-sqlite3, quick, fast and more enhanced!",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "keywords": [
+    "json.db",
+    "enchanced.db",
+    "enhanced.db",
+    "jsondb.ez",
+    "jsondb",
+    "easy-json-database",
+    "quick.json",
+    "easy-json-database",
+    "database",
+    "quick.db",
+    "mongo.eco",
+    "factful.js",
+    "node-periodic-table",
+    "quickmongo",
+    "snowflake",
+    "science_spot_codes"
+  ],
+  "author": "_tsuki__",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^8.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-promise": "^6.1.1"
+  }
 }

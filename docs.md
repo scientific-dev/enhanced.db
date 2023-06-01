@@ -5,6 +5,7 @@
 So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB** but this one is recreated without any source code. Then nothing to say! The Docs will say everything
 
 # Index
+
 - [Requirements](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#requirements)
 - [Things to know](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#things-to-know)
 - [Getting Started](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#getting-started)
@@ -27,126 +28,139 @@ So most of them knows what is **Enchanced.DB** a enchanced version of **Quick.DB
 - [Some Links](https://github.com/scientific-dev/enchanced.db/blob/master/docs.md#some-links)
 
 # Requirements
+
 - v0.0.90 of **Enchanced.DB** or higher
 - Basic knowledge with JS
 - Better IDE
 
 # Things to know
+
 I was using Quick.DB for some works but i felt so much missing in **Quick.DB** so i decided to make **Enchanced.DB**! This package is not made to compete. This is just made to help others using Quick.DB with some more features! This works same as **Quick.DB** works with less codes using **better-sqlite3** and **fs**. There are no demerits with the package excpet that package stores data in key and value where as **Quick.DB** stores in **ID** and **data** which will make mess if you are using both side by side but if you know **Enchanced.DB** you can use **importQuick()** to import datas from **Quick.DB**!
 
 # Docs
 
 ## Getting Started
+
 Import Package
+
 ```js
-const db = require('enchanced.db')
+const db = require("enchanced.db");
 ```
 
 ## Set
+
 Set value to the key!
 
 ```js
-db.set(key, value)
+db.set(key, value);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 | value | string, object or array | Data of the ID |
 
 ## Get
+
 Get value of the key!
 
 ```js
-db.get(key)
+db.get(key);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 
 ## All
+
 Get all the data in the database
 
 ```js
-db.all()
+db.all();
 ```
 
-> **NOTE:** Remember if you are doing db.all() this will return data but if you made tables. The data of those tables wont return to get those data you have to do ``table.all()`` method where ``table`` is the constructor. In future we will be solving this problem too!
+> **NOTE:** Remember if you are doing db.all() this will return data but if you made tables. The data of those tables wont return to get those data you have to do `table.all()` method where `table` is the constructor. In future we will be solving this problem too!
 
 ## StartsWith
+
 Will filter data with startsWith() function! This will also return the data startswith the search parameter excluding tables!
 
 ```js
-db.startsWith(search)
+db.startsWith(search);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
-| search | string | String to filter data with ``startsWith()`` |
+| search | string | String to filter data with `startsWith()` |
 
 ## Has
+
 Will return true or false if it has value or not for that key
 
 ```js
-db.has(key)
+db.has(key);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 
 ## Type
+
 Will return tyepof the key
 
 ```js
-db.type(key)
+db.type(key);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 
 ## Add
+
 Will add value to the existing value of the key only if its number
 
 ```js
-db.add(key, amount)
+db.add(key, amount);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 | amount | number | Amount to add |
 
 ## Subtract
+
 Will subtract value from the existing value of the key only if its number
 
 ```js
-db.subtract(key, amount)
+db.subtract(key, amount);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 | amount | number | Amount to subtract |
 
 ## Options
+
 There are some options which makes this database unique!
 
 ```js
-db.options(options)
+db.options(options);
 ```
 
 **Options:**
-| Options Name  | Tyepof     | Description | Default |
+| Options Name | Tyepof | Description | Default |
 | ----------------|------------|-------------|---------|
 | clearOnStart | boolean | Will clear database on restart of program only if its set to `true` | false |
 | filename | string | Name of the file where data will be stored! | 'enchanced.sqlite' |
@@ -154,85 +168,92 @@ db.options(options)
 > **NOTE:** Use `import()` if you are switching to a new file
 
 ## Push
+
 Push data to the old value if its an Array
 
 ```js
-db.push(key, value)
+db.push(key, value);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 | value | any | Value to push |
 
 ## Includes
+
 Will check oldData if it includes value in the OldValue Array
 
 ```js
-db.includes(key, value)
+db.includes(key, value);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 | value | any | Value to check if its included! |
 
-
 ## Delete
+
 Will delete value of the key
 
 ```js
-db.delete(key)
+db.delete(key);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | key | string | ID of the value |
 
 ## DeleteAll
+
 Will delete all values of the keys. This will support only to the deafult database table not to the custom tables....
 
 ```js
-db.deleteAll()
+db.deleteAll();
 ```
 
 ## Import
+
 Import data from table to table or table to default table or vice versa but only for `{key: key, value: value}` type stored data!
 
 ```js
-db.import(data)
+db.import(data);
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | data | object | all() **Only Enchanced.DB** data only! |
 
 ## ImportQuick
+
 Import data from Quick.DB table data or default table data!
 
 ```js
-const quick = require('quick.db')
-const db = require('enchanced.db')
+const quick = require("quick.db");
+const db = require("enchanced.db");
 
-db.importQuick(quick.all())
+db.importQuick(quick.all());
 ```
 
 **Parameters:**
-| Parameter Name  | Tyepof     | Description |
+| Parameter Name | Tyepof | Description |
 | ----------------|------------|-------------|
 | data | object | all() **Only Quick.DB** data only! |
 
 ## Introduction to Tables
+
 So if you are Quick.DB user you know what is this. Till now you have use default database table named `database` but using the `Table` constructor you can make custom Sqlite Database Tables with custom names and options too
 
 ### Setting up Tables
+
 ```js
-const { Table } = require('enchanced.db')
-const table = new Table(tableName, options)
+const { Table } = require("enchanced.db");
+const table = new Table(tableName, options);
 ```
 
 **Parameters:**
@@ -242,6 +263,7 @@ const table = new Table(tableName, options)
 | options | object | Same as `options()` method in the default database table! **Options:** `clearOnStart` and `filename` |
 
 ### Methods and functions of the tables
+
 If you have read the docs from first then you have learnt **Enchanced.DB** finally because `Table` constructor has same methods!
 
 **Methods:** `set`, `get`, `all`, `startsWith`, `has`, `type`, `add`, `subtract`, `delete`, `deleteTable`, `import`, `importQuick`, `push`, `includes`
@@ -249,5 +271,6 @@ If you have read the docs from first then you have learnt **Enchanced.DB** final
 > **Note:** There is no use of `options()` function in `Table` constructor because you can set it in the constructor parameter Options itself. And you need to use `deleteTable()` function instead of `deleteAll()` for custom tables!
 
 # Some Links
- - **Discord Server Link:** [https://discord.gg/FrduEZd](https://discord.gg/FrduEZd)
- - **GitHub Repo Link:** [https://github.com/scientific-dev/enchanced.db](https://github.com/scientific-dev/enchanced.db)
+
+- **Discord Server Link:** [https://discord.gg/FrduEZd](https://discord.gg/FrduEZd)
+- **GitHub Repo Link:** [https://github.com/scientific-dev/enchanced.db](https://github.com/scientific-dev/enchanced.db)

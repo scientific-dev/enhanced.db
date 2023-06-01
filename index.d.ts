@@ -1,20 +1,20 @@
 export const version: string;
 export const startedAt: number;
 
-interface optionType{
-    clearOnStart?: boolean,
-    filename?: string
+interface optionType {
+  clearOnStart?: boolean;
+  filename?: string;
 }
 
-interface readOptionType{
-    table?: string
+interface readOptionType {
+  table?: string;
 }
 
-type data = boolean | string | number | object | any[]
+type data = boolean | string | number | object | any[];
 
-interface keyValue{
-    key: string,
-    value: data
+interface keyValue {
+  key: string;
+  value: data;
 }
 
 export function set(key: string, value: data): void;
@@ -39,39 +39,39 @@ function del(key: string): void;
 export { del as delete };
 export { imp as import };
 
-export class Table{
-    public constructor(tablename: string, options?: optionType);
+export class Table {
+  public constructor(tablename: string, options?: optionType);
 
-    public tablename: string;
-    public startedAt: number;
-    public options: any;
-    public filename: string;
-    public base: any;
+  public tablename: string;
+  public startedAt: number;
+  public options: any;
+  public filename: string;
+  public base: any;
 
-    public set(key: string, value: data): void;
-    public get(key: string): data;
-    public fetch(key: string): data;
-    public all(): keyValue[];
-    public startsWith(search: string): keyValue[];
-    public has(key: string): boolean;
-    public type(key: string): any;
-    public add(key: string, amount: number): void;
-    public subtract(key: string, amount: number): void;
-    public push(key: string, value: data): void;
-    public includes(key: string, value: data): boolean;
-    public is(key: string, value: data): boolean;
-    public import(data: keyValue[]): void;
-    public delete(key: string): void;
-    public deleteAll(): void;
-    public importQuick(data: keyValue[]): void;
+  public set(key: string, value: data): void;
+  public get(key: string): data;
+  public fetch(key: string): data;
+  public all(): keyValue[];
+  public startsWith(search: string): keyValue[];
+  public has(key: string): boolean;
+  public type(key: string): any;
+  public add(key: string, amount: number): void;
+  public subtract(key: string, amount: number): void;
+  public push(key: string, value: data): void;
+  public includes(key: string, value: data): boolean;
+  public is(key: string, value: data): boolean;
+  public import(data: keyValue[]): void;
+  public delete(key: string): void;
+  public deleteAll(): void;
+  public importQuick(data: keyValue[]): void;
 }
 
-export class Read{
-    constructor(filename: string, options?: readOptionType);
+export class Read {
+  constructor(filename: string, options?: readOptionType);
 
-    public filename: string;
-    public options: any;
-    public base: any;
+  public filename: string;
+  public options: any;
+  public base: any;
 
-    public get(): any[];
+  public get(): any[];
 }
