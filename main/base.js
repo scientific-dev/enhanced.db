@@ -10,10 +10,10 @@ class Base {
    * @param {string} filename
    */
 
-  constructor (table, filename) {
-    this.table = table
-    this.filename = filename
-    this.db = require('better-sqlite3')(this.filename)
+  constructor(table, filename) {
+    this.table = table;
+    this.filename = filename;
+    this.db = require("better-sqlite3")(this.filename);
   }
 
   /**
@@ -22,30 +22,30 @@ class Base {
    * @param {any} value data
    */
 
-  set (key, value) {
+  set(key, value) {
     this.db
       .prepare(
         `CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`
       )
-      .run()
+      .run();
 
     let fetchedData = this.db
       .prepare(`SELECT * FROM ${this.table} WHERE key = (?)`)
-      .get(key)
+      .get(key);
 
     if (!fetchedData) {
       this.db
         .prepare(`INSERT INTO ${this.table} (key, value) VALUES (?,?)`)
-        .run(key, '{}')
+        .run(key, "{}");
       fetchedData = this.db
         .prepare(`SELECT * FROM ${this.table} WHERE key = (?)`)
-        .get(key)
+        .get(key);
     }
 
     this.db
       .prepare(`UPDATE ${this.table} SET value = (?) WHERE key = (?)`)
-      .run(JSON.stringify(value), key)
-    return value
+      .run(JSON.stringify(value), key);
+    return value;
   }
 
   /**
@@ -53,22 +53,22 @@ class Base {
    * @param {string} key ID
    */
 
-  get (key) {
+  get(key) {
     this.db
       .prepare(
         `CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`
       )
-      .run()
+      .run();
 
     const value = this.db
       .prepare(`SELECT * FROM ${this.table} WHERE key = (?)`)
-      .get(key)
+      .get(key);
 
-    if (!value) return null
+    if (!value) return null;
     try {
-      return JSON.parse(value.value)
+      return JSON.parse(value.value);
     } catch (e) {
-      return value.value
+      return value.value;
     }
   }
 
@@ -77,37 +77,37 @@ class Base {
    * @param {string} key ID
    */
 
-  delete (key) {
+  delete(key) {
     this.db
       .prepare(
         `CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`
       )
-      .run()
-    this.db.prepare(`DELETE FROM ${this.table} WHERE key = (?)`).run(key)
+      .run();
+    this.db.prepare(`DELETE FROM ${this.table} WHERE key = (?)`).run(key);
   }
 
   /**
    * Get all values of a key
    */
 
-  all () {
+  all() {
     this.db
       .prepare(
         `CREATE TABLE IF NOT EXISTS ${this.table} (key TEXT, value TEXT)`
       )
-      .run()
+      .run();
 
     const statement = this.db.prepare(
       `SELECT * FROM ${this.table} WHERE key IS NOT NULL`
-    )
-    const data = statement.iterate()
-    const result = []
+    );
+    const data = statement.iterate();
+    const result = [];
 
     for (const set of data) {
-      result.push({ key: set.key, value: JSON.parse(set.value) })
+      result.push({ key: set.key, value: JSON.parse(set.value) });
     }
 
-    return result
+    return result;
   }
 }
 
@@ -115,4 +115,4 @@ class Base {
  * Export the table
  */
 
-module.exports = Base
+module.exports = Base;
